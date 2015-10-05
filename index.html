@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta charset="utf-8">
+   <title>Tic Tac Toe</title>
+   <link rel="stylesheet" href="tictactoe.css">
+ </head>
+
+ <body>
+   <div class="box"></div>
+   <div class="box"></div>
+   <div class="box"></div>
+   <br>
+   <div class="box"></div>
+   <div class="box"></div>
+   <div class="box"></div>
+   <br>
+   <div class="box"></div>
+   <div class="box"></div>
+   <div class="box"></div>
+   </div>
+
+   <script type="text/javascript">
+
+      var counter = 0;
+      var boxes = document.querySelectorAll('.box');
+
+	    function setSquare(el){
+        el.addEventListener('click', function(){
+        console.log('counter', counter);
+        if (el.className === "box") {
+          if (counter % 2 === 0) {
+            el.className = "cross";
+			      el.innerHTML = "X"
+          } else {
+            el.className = "circle";
+			      el.innerHTML = "O"
+          }
+          console.log(el);
+          counter = counter + 1;
+          if (boxes[0].className === "cross" && boxes[1].className === "cross" && boxes[2].className === "cross" ||
+              boxes[3].className === "cross" && boxes[4].className === "cross" && boxes[5].className === "cross" ||
+              boxes[6].className === "cross" && boxes[7].className === "cross" && boxes[8].className === "cross" ||
+              boxes[0].className === "cross" && boxes[3].className === "cross" && boxes[6].className === "cross" ||
+              boxes[1].className === "cross" && boxes[4].className === "cross" && boxes[7].className === "cross" ||
+              boxes[2].className === "cross" && boxes[5].className === "cross" && boxes[8].className === "cross" ||
+              boxes[0].className === "cross" && boxes[4].className === "cross" && boxes[8].className === "cross" ||
+              boxes[2].className === "cross" && boxes[4].className === "cross" && boxes[6].className === "cross"
+        ){
+              alert('Player One Wins!');
+            }
+          if (boxes[0].className === "circle" && boxes[1].className === "circle" && boxes[2].className === "circle" ||
+              boxes[3].className === "circle" && boxes[4].className === "circle" && boxes[5].className === "circle" ||
+              boxes[6].className === "circle" && boxes[7].className === "circle" && boxes[8].className === "circle" ||
+              boxes[0].className === "circle" && boxes[3].className === "circle" && boxes[6].className === "circle" ||
+              boxes[1].className === "circle" && boxes[4].className === "circle" && boxes[7].className === "circle" ||
+              boxes[2].className === "circle" && boxes[5].className === "circle" && boxes[8].className === "circle" ||
+              boxes[0].className === "circle" && boxes[4].className === "circle" && boxes[8].className === "circle" ||
+              boxes[2].className === "circle" && boxes[4].className === "circle" && boxes[6].className === "circle"
+        ){
+              alert('Player Two Wins!');
+            }
+        }})
+      }
+      for (var i = 0; i < boxes.length; i++) {
+          setSquare(boxes[i]);
+      }
+   </script>
+ </body>
+</html>
